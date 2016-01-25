@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bchs_solutions.android.autoinfoapp.ParkenActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parken"
+        android:id="@+id/button_parken"
+        android:onClick="onClick"
+        android:layout_below="@+id/btnReset"
+        android:layout_alignParentStart="true" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_parken"
+        tools:context="com.bchs_solutions.android.autoinfoapp.MapsActivity" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zurücksetzen"
+        android:id="@+id/btnReset"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:visibility="visible"
+        android:onClick="onClick" />
+
+</RelativeLayout>

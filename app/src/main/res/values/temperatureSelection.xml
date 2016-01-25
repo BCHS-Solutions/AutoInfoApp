@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="temperature_array">
+        <item>14 °C</item>
+        <item>15 °C</item>
+        <item>16 °C</item>
+        <item>17 °C</item>
+        <item>18 °C</item>
+        <item>19 °C</item>
+        <item>20 °C</item>
+        <item>21 °C</item>
+        <item>22 °C</item>
+        <item>23 °C</item>
+        <item>24 °C</item>
+        <item>25 °C</item>
+    </string-array>
+</resources>
