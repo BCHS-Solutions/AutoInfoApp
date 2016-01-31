@@ -15,11 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Informationen"
+            android:id="@+id/textView6"
+            android:layout_above="@+id/progressBar_tankanzeige"
+            android:layout_alignParentStart="true" />
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/row_tanken"
-            android:onClick="onClick">
+            android:id="@+id/row_tanken">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -125,12 +133,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="20 °C"
+                    android:text="17 °C"
                     android:id="@+id/textView_TemperaturStatus"
                     android:layout_alignParentEnd="true"
                     android:layout_alignBottom="@+id/textView5" />
             </RelativeLayout>
         </TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Steuerung"
+            android:id="@+id/textView8"
+            android:layout_above="@+id/progressBar_tankanzeige"
+            android:layout_alignParentStart="true" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -193,13 +210,27 @@
             </RelativeLayout>
         </TableRow>
 
-        <Button
-            android:layout_width="wrap_content"
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="maps"
-            android:id="@+id/btn_maps"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onClick" />
+            android:id="@+id/row_parken"
+            android:onClick="onClick">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Parken"
+                    android:id="@+id/tvMainParken"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+        </TableRow>
 
     </LinearLayout>
 

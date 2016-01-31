@@ -27,6 +27,9 @@ import android.widget.Toast;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.maps.model.Marker;
+
+import java.security.PrivilegedAction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // Tankanzeige
         changeFuelGaugeColor();
 
+        // Luftdruck
         TextView tvMainLuftdruckMessage = (TextView) findViewById(R.id.tvMainLuftdruckMessage);
         for(double druck : Luftdruck.getInstance().getLufdruck()){
             if (druck != 2.0){
@@ -63,13 +67,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.row_klimatisierung:
                 startActivity(new Intent(this, KlimatisierungActivity.class));
                 break;
-            case R.id.row_tanken:
-                startActivity(new Intent(this, TankenActivity.class));
-                break;
             case R.id.row_luftdruck:
                 startActivity(new Intent(this, LuftdruckActivity.class));
                 break;
-            case R.id.btn_maps:
+            case R.id.row_parken:
                 startActivity(new Intent(this, ParkenActivity.class));
                 break;
         }

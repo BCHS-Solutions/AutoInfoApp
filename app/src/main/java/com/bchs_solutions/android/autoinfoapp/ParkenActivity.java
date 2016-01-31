@@ -41,8 +41,7 @@ public class ParkenActivity extends FragmentActivity implements OnMapReadyCallba
     private GoogleMap mMap;
     private final static int LOCATION_REQUEST = 1001;
     private static LatLng parkedLocation;
-    private static Marker markerParked;
-    private static LatLng lastKnownLatLong = new LatLng(50.5649176, 9.6887569); // ALDI
+    protected static Marker markerParked;
     private static Date parkedDateTime;
     private static LocationManager locationManager;
     private Button btnReset;
@@ -90,20 +89,13 @@ public class ParkenActivity extends FragmentActivity implements OnMapReadyCallba
             btnReset.setVisibility(View.VISIBLE);
             DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
             DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
-            markerParked = mMap.addMarker(new MarkerOptions().position(parkedLocation).title("geparkt am: " + dateFormat.format(parkedDateTime) + " um " + timeFormat.format(parkedDateTime)).snippet("C173").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+            markerParked = mMap.addMarker(new MarkerOptions().position(parkedLocation).title("geparkt am: " + dateFormat.format(parkedDateTime) + " um " + timeFormat.format(parkedDateTime)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(parkedLocation, 18));
         } else {
             //TODO show my actual position
             btnReset.setVisibility(View.GONE);
-            String locationProvider = LocationManager.GPS_PROVIDER;
-            Location lastKnownLocation = null;
-            try {
-                lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
-                LatLng latLng = new LatLng(lastKnownLocation.getLatitude(),lastKnownLocation.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            LatLng latLngAldi = new LatLng(50.5649176, 9.6887569);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngAldi, 18));
         }
 
     }
@@ -136,16 +128,16 @@ public class ParkenActivity extends FragmentActivity implements OnMapReadyCallba
     private void removeMarker() {
         parkedLocation = null;
         markerParked.remove();
-        btnReset.setEnabled(false);
+        btnReset.setVisibility(View.GONE);
         Toast.makeText(this, "letzte Position wurde entfernt", Toast.LENGTH_LONG).show();
     }
 
     private void parken(){
         //TODO position auswählen und speichern, textfeld für Eingabe einer Parkplatznummer oder anderer Merkmale. Eventuell mit Bild?
         parkedDateTime = Calendar.getInstance().getTime();
+        mMap.addMarker(new MarkerOptions().position(mMap.getCameraPosition().target));
+        parkedLocation = mMap.getCameraPosition().target;
 
-        //mMap.addMarker(new MarkerOptions().position(lastKnownLatLong).draggable(true));
-        parkedLocation = lastKnownLatLong;
         Toast toast = Toast.makeText(this,"Position erfolgreich gespeichert.\nBis später!", Toast.LENGTH_LONG);
         TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
         if(v != null) v.setGravity(Gravity.CENTER);

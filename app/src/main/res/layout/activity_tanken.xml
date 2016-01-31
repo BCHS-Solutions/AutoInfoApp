@@ -9,12 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.bchs_solutions.android.autoinfoapp.TankenActivity">
 
-    <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/graph"
-        android:layout_above="@+id/btnTankenNeuerEintrag" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,4 +24,11 @@
         android:id="@+id/btnTankenNeuerEintrag"
         android:layout_above="@+id/btnTankenReset"
         android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listViewTanken"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btnTankenNeuerEintrag" />
 </RelativeLayout>

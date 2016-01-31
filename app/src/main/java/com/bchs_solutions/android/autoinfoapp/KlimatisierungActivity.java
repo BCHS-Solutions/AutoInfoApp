@@ -14,9 +14,9 @@ import android.widget.ToggleButton;
 
 public class KlimatisierungActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private static int int_setTempPos = 6;
+    private static int int_actualTemp = 17;
+    private static int int_setTempPos = int_actualTemp-14;
     private static String String_setTemp = "20 °C";
-    private static int int_actualTemp = 20;
     private static boolean active = false;
 
 
